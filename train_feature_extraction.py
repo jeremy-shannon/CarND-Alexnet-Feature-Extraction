@@ -4,17 +4,23 @@ from sklearn.model_selection import train_test_split
 from alexnet import AlexNet
 
 # TODO: Load traffic signs data.
+with open('train.p', 'rb') as f:
+    data = pickle.load(f)
+X_train = data['features']
+y_train = data['labels']
+
+print(X_train.shape, y_train.shape)
 
 # TODO: Split data into training and validation sets.
 
 # TODO: Define placeholders and resize operation.
 
 # TODO: pass placeholder as first argument to `AlexNet`.
-fc7 = AlexNet(..., feature_extract=True)
+#fc7 = AlexNet(..., feature_extract=True)
 # NOTE: `tf.stop_gradient` prevents the gradient from flowing backwards
 # past this point, keeping the weights before and up to `fc7` frozen.
 # This also makes training faster, less work to do!
-fc7 = tf.stop_gradient(fc7)
+#fc7 = tf.stop_gradient(fc7)
 
 # TODO: Add the final layer for traffic sign classification.
 
